@@ -7,30 +7,54 @@
 # 2. random shuffle
 # 3.
 
-import random, ezgmail, os
+# import random, ezgmail, os
 
-names = ["jon","jest","mich","erni"]
-random.shuffle(names)
+# names = ["jon","jest","mich","erni"]
+names = []
+emails = {}
+#TOD- How many people are in the secret santa
+numofPeeps = int(input("How many people are in the Secret Santa?: "))
 
-secretoSanta = {}
+# TOO - what are the names of the poeple and what is there corresponding
+# emails
 
-for i in range(len(names)):
-    if i == len(names)-1:
-        secretoSanta[names[i]] = names[0]
-        break
+#for loop
+for i in range(numofPeeps):
+    #ask what is person number i's name
+    i = str(i+1)
+    name = input("What is person #"+i+"'s name? ")
 
-    secretoSanta[names[i]] = names[i+1]
+    #what is there email
+    email = input("What's "+ name+"'s email? ")
 
-# print(secretoSanta)
+    #add it to list
+    names.append(name)
+    #add to dictionairy
 
-# ezgmail.send('jesthinedisla@gmail.com', "Send Emails using Python", '''
-#     So I figured out how to send emails using python. It's lit.''', cc="jondis26@gmail.com" )
+    emails[name] = email
 
-#emailing the secretsantas
+print(emails)
+# random.shuffle(names)
 
-for k,v in secretoSanta.items():
-    em = k + "@gmail.com"
-    ezgmail.send(em,"Secreto Santa", "\nHello\n\nYour Secreto Santa is: "+v)
+# secretoSanta = {}
+
+# for i in range(len(names)):
+#     if i == len(names)-1:
+#         secretoSanta[names[i]] = names[0]
+#         break
+
+#     secretoSanta[names[i]] = names[i+1]
+
+# # print(secretoSanta)
+
+# # ezgmail.send('a@gmail.com', "Send Emails using Python", '''
+# #     So I figured out how to send emails using python. It's lit.''', cc="jondis26@gmail.com" )
+
+# #emailing the secretsantas
+
+# for k,v in secretoSanta.items():
+#     em = k + "@gmail.com"
+#     ezgmail.send(em,"Secreto Santa", "\nHello\n\nYour Secreto Santa is: "+v)
 
 # v = "luse"
 # em = "jondis26@gmail.com"
